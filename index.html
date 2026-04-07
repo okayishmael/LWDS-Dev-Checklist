@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bricks Builder Checklist — GovPixels</title>
+  <meta name="description" content="A performance, accessibility, and mobile-first checklist for building Liberian government ministry websites in Bricks Builder." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Government Identity Banner -->
+<div class="gov-banner" role="banner">
+  <span class="flag" aria-hidden="true">🇱🇷</span>
+  <span>An official resource of <strong>GovPixels</strong> — People Country Service</span>
+</div>
+
+<!-- Navigation -->
+<nav aria-label="Site navigation">
+  <a href="#" class="nav-brand">GovPixels</a>
+  <ul class="nav-links">
+    <li><a href="#performance">Performance</a></li>
+    <li><a href="#mobile">Mobile</a></li>
+    <li><a href="#accessibility">Accessibility</a></li>
+    <li><a href="#content">Content</a></li>
+    <li><a href="#trust">Trust</a></li>
+  </ul>
+</nav>
+
+<!-- Main Content -->
+<main class="page" id="main">
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="page-title">
+    <p class="eyebrow">Bricks Builder — 2024–2025</p>
+    <h1 id="page-title">Building for the Liberian citizen, not the average user.</h1>
+    <p>
+      A checklist grounded in Liberia's digital reality: 87% mobile connections,
+      3G networks, sub-$100 Android phones, and citizens paying per megabyte.
+      Every item maps to a documented design constraint.
+    </p>
+    <div class="summary-stats" role="group" aria-label="Checklist summary">
+      <div class="stat-box">
+        <span class="num" id="total-count">55</span>
+        <span class="label">Total items</span>
+      </div>
+      <div class="stat-box">
+        <span class="num" id="critical-count">14</span>
+        <span class="label">Critical items</span>
+      </div>
+      <div class="stat-box">
+        <span class="num">7</span>
+        <span class="label">Categories</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progress -->
+  <div class="progress-wrap" role="region" aria-label="Checklist progress">
+    <div class="progress-meta">
+      <span class="label">Completion</span>
+      <span class="count" id="progress-label">0 of 55 completed</span>
+    </div>
+    <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Overall progress">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+    <span class="progress-pct" id="progress-pct">0% complete</span>
+  </div>
+
+  <!-- Checklist intro -->
+  <div class="section-intro">
+    <p class="section-label">The checklist</p>
+    <h2>Seven constraint categories. Every item has a reason.</h2>
+    <p>
+      Items marked <strong>Critical</strong> directly address the most acute barriers:
+      page weight, 3G load time, tap targets, and colour contrast.
+      Resolve these before optimising anything else.
+    </p>
+    <div class="implication">
+      <strong>Target:</strong> Under 100 KB page weight. Under 3 seconds on Slow 3G.
+      WCAG 2.1 AA throughout. Minimum 44×44 px tap targets. One H1 per page.
+    </div>
+    <div style="display:flex; justify-content:flex-end; margin-bottom:24px;">
+      <button class="reset-btn" id="reset-btn" aria-label="Reset all checklist items">Reset all</button>
+    </div>
+  </div>
+
+  <!-- ── CHECKLIST ─────────────────────────────────────────── -->
+  <div id="checklist" role="list">
+
+    <!-- 01 Performance & Page Weight -->
+    <div class="category" id="performance" role="listitem">
+      <button class="category-header" aria-expanded="true" aria-controls="items-perf">
+        <span class="cat-number">01</span>
+        <span class="cat-title">Performance &amp; Page Weight</span>
+        <span class="cat-meta">
+          <span class="cat-progress-track"><span class="cat-progress-fill" style="width:0%" data-cat="perf"></span></span>
+          <span class="cat-count" data-cat-count="perf">0/11</span>
+        </span>
+        <span class="chevron" aria-hidden="true">▶</span>
+      </button>
+      <ul class="items open" id="items-perf" role="group" aria-label="Performance items">
+        <li class="item" role="listitem" data-key="perf-0">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Set a strict performance budget<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">Target under 100 KB total page weight. Configure Bricks to warn when assets exceed this. A heavy page is a financial cost to citizens paying per MB.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="perf-1">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Set CSS loading method to External File</p>
+            <p class="item-note">Settings → Performance → CSS Loading Method → External File. Avoids render-blocking inline styles on every page load.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="perf-2">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Disable all unused Bricks elements globally<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">Settings → Builder → Disable Elements. Disabling unused elements cuts generated CSS by up to 70%. Default Bricks generates CSS for all 60+ elements.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="perf-3">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Generate only used CSS in production</p>
+            <p class="item-note">Settings → Performance → CSS → "Generate CSS Inline (used styles only)". Eliminates unused rules before deployment.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="perf-4">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Use Bricks as the active theme (no parent theme)</p>
+            <p class="item-note">Running Bricks as a child of another theme loads the parent theme's entire CSS. Bricks standalone avoids that overhead entirely.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="perf-5">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Disable WordPress Block Editor styles on the frontend</p>
+            <p class="item-note">Dequeue block-editor CSS using a Code Snippets plugin or functions.php. Gutenberg styles load by default even if you never use Gutenberg.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="perf-6">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Minify and combine JS/CSS via a caching plugin<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">Use WP Rocket, Perfmatters, or LiteSpeed Cache. Enable GZIP/Brotli compression at the server level. Minify HTML, CSS, and JS.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="perf-7">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Enable server-side or static page caching</p>
+            <p class="item-note">Citizens on 3G benefit most from pre-built, cached HTML responses. LiteSpeed Cache or Cloudflare can serve static copies within milliseconds.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="perf-8">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Enable a CDN — Cloudflare free tier minimum</p>
+            <p class="item-note">Cloudflare's edge nodes reduce latency to sub-Saharan Africa significantly. The free tier handles static asset delivery and basic DDoS protection.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="perf-9">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Defer or async all non-critical JavaScript<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">In Bricks Settings → Performance, enable defer JS. No scripts should block the first paint. Test with Chrome DevTools' render-blocking resources audit.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="perf-10">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Dequeue WordPress default scripts not needed on the frontend</p>
+            <p class="item-note">Emoji JS (~15 KB), Dashicons (~50 KB), and jQuery (if unused) can be dequeued via Perfmatters or Code Snippets. These load by default on every page.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 02 Images & Media -->
+    <div class="category" id="images" role="listitem">
+      <button class="category-header" aria-expanded="false" aria-controls="items-img">
+        <span class="cat-number">02</span>
+        <span class="cat-title">Images &amp; Media</span>
+        <span class="cat-meta">
+          <span class="cat-progress-track"><span class="cat-progress-fill" style="width:0%" data-cat="img"></span></span>
+          <span class="cat-count" data-cat-count="img">0/7</span>
+        </span>
+        <span class="chevron" aria-hidden="true">▶</span>
+      </button>
+      <ul class="items" id="items-img" role="group" aria-label="Image and media items">
+        <li class="item" role="listitem" data-key="img-0">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Enforce WebP format for all images<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">WebP is 25–35% smaller than JPEG. Install Imagify or ShortPixel to auto-convert on upload. Never accept raw PNGs or uncompressed JPEGs.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="img-1">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Set a maximum image dimension policy: 800 px wide</p>
+            <p class="item-note">No decorative banners wider than 800 px. Government information sites don't need large hero images. Size images to their display dimensions, not beyond.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="img-2">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Enable lazy loading on all images in Bricks</p>
+            <p class="item-note">Every Image element → set the Loading attribute to Lazy in the Bricks panel. This is native in Bricks and defers off-screen images until needed.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="img-3">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Add explicit width and height to every image element</p>
+            <p class="item-note">Prevents Cumulative Layout Shift (CLS). Set in the Bricks Image element settings. Required for passing Core Web Vitals — without it, the page jumps as images load.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="img-4">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Write descriptive alt text for every image<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">Required for WCAG 2.1 AA. In Bricks Image element, always fill the Alt Text field. Decorative images that convey no information should use empty alt="".</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="img-5">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Replace decorative images with CSS where possible</p>
+            <p class="item-note">Solid colour backgrounds, borders, and dividers — use Bricks styling panels, not image files. Each avoided image saves KBs and a network request.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="img-6">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Remove auto-playing or background video entirely<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">Background video can add 3–10 MB. On a 3G connection where citizens pay per MB, this is a direct exclusion mechanism. Banned on all citizen-facing pages.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 03 Mobile-First Layout -->
+    <div class="category" id="mobile" role="listitem">
+      <button class="category-header" aria-expanded="false" aria-controls="items-mob">
+        <span class="cat-number">03</span>
+        <span class="cat-title">Mobile-First Layout</span>
+        <span class="cat-meta">
+          <span class="cat-progress-track"><span class="cat-progress-fill" style="width:0%" data-cat="mob"></span></span>
+          <span class="cat-count" data-cat-count="mob">0/8</span>
+        </span>
+        <span class="chevron" aria-hidden="true">▶</span>
+      </button>
+      <ul class="items" id="items-mob" role="group" aria-label="Mobile-first layout items">
+        <li class="item" role="listitem" data-key="mob-0">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Design all layouts starting from mobile (320 px)<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">In Bricks, start every template at the mobile breakpoint first. 87% of Liberian internet users are on mobile. Desktop is the enhancement, not the starting point.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="mob-1">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Set minimum tap target size to 44×44 px<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">All buttons, links, and nav items must meet 44×44 px minimum. Set min-height:44px in Bricks styling. Required for WCAG 2.5.5 and essential for low-cost touchscreens.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="mob-2">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Use single-column vertical card layouts on mobile</p>
+            <p class="item-note">No side-by-side columns on viewports under 600 px. Set Bricks container direction to Column at the mobile breakpoint. Horizontal layouts require thumb-stretch or horizontal scroll.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="mob-3">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Remove all hover-only interactions</p>
+            <p class="item-note">Dropdown menus triggered only on :hover are inaccessible on touch devices. Replace with Bricks click/toggle interactions. Touch devices have no hover state.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="mob-4">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Set body text minimum font size to 16 px<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">16 px prevents iOS Safari from auto-zooming on input focus. Set in Bricks Global Settings → Default Typography. Smaller text is also harder to read on low-resolution screens.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="mob-5">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Verify no horizontal scroll at 320 px viewport width</p>
+            <p class="item-note">Test every template at 320 px in Chrome DevTools. Fix overflow using overflow:hidden on containers in Bricks where needed. Horizontal scrolling is a critical failure on small phones.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="mob-6">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Use system fonts or a single WOFF2-subsetted font<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">A system font stack costs 0 KB. If using a custom font, subset to Latin characters only and use WOFF2 format. Load maximum one custom font family — not two.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="mob-7">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Test with Chrome DevTools Slow 3G throttling before publishing</p>
+            <p class="item-note">Primary content must load within 3 seconds on Slow 3G. This is the publish gate. If it fails this test, it fails most Liberian citizens. Run a Lighthouse audit after every major change.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 04 Accessibility -->
+    <div class="category" id="accessibility" role="listitem">
+      <button class="category-header" aria-expanded="false" aria-controls="items-a11y">
+        <span class="cat-number">04</span>
+        <span class="cat-title">Accessibility — WCAG 2.1 AA</span>
+        <span class="cat-meta">
+          <span class="cat-progress-track"><span class="cat-progress-fill" style="width:0%" data-cat="a11y"></span></span>
+          <span class="cat-count" data-cat-count="a11y">0/9</span>
+        </span>
+        <span class="chevron" aria-hidden="true">▶</span>
+      </button>
+      <ul class="items" id="items-a11y" role="group" aria-label="Accessibility items">
+        <li class="item" role="listitem" data-key="a11y-0">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Colour contrast ratio minimum 4.5:1 for body text<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">Use the WebAIM Contrast Checker. Test all text/background combinations set in Bricks Global Typography and any custom brand colours used on the site.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="a11y-1">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Colour contrast ratio minimum 3:1 for large text and UI components</p>
+            <p class="item-note">Buttons, icons, and borders must achieve 3:1 against their background. Check all government brand colours — red and blue are common contrast failures.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="a11y-2">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Add a visible keyboard focus style to all interactive elements<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">In Bricks Global CSS, define a :focus-visible outline (e.g., 3px solid #002868). Never set outline:none without providing a visible replacement. Keyboard users are entirely excluded without this.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="a11y-3">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">All form fields must have a visible, persistent label</p>
+            <p class="item-note">Placeholder text disappears when the user types. Use Bricks Form element's Label field. Every input requires a persistent label that remains visible at all times.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="a11y-4">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Set the page language attribute to 'en'</p>
+            <p class="item-note">Set site language in WordPress General Settings. Bricks renders &lt;html lang="en"&gt; automatically. Screen readers require this to apply correct pronunciation rules.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="a11y-5">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Enforce a correct heading hierarchy — H1 → H2 → H3, no skipping</p>
+            <p class="item-note">One H1 per page. In Bricks, set the HTML tag explicitly in the heading element dropdown — do not rely on visual size to determine hierarchy. Skipping levels breaks screen reader navigation.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="a11y-6">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Add a skip-to-main-content link as the first focusable element</p>
+            <p class="item-note">Add a hidden "Skip to main content" anchor at the top of the Bricks header template. Visible on keyboard focus. Required for keyboard and screen reader users navigating through the header repeatedly.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="a11y-7">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">All icon-only buttons must have an aria-label<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">In Bricks, use the Accessibility panel on icon buttons to add an aria-label. An icon with no text label is completely invisible to screen reader users.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="a11y-8">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Test every page template with a screen reader</p>
+            <p class="item-note">Use NVDA + Firefox on Windows or VoiceOver on iOS. Verify reading order matches visual order. Run this test before launch and after major template changes — not once at the end of the project.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 05 Content & Readability -->
+    <div class="category" id="content" role="listitem">
+      <button class="category-header" aria-expanded="false" aria-controls="items-cont">
+        <span class="cat-number">05</span>
+        <span class="cat-title">Content &amp; Readability</span>
+        <span class="cat-meta">
+          <span class="cat-progress-track"><span class="cat-progress-fill" style="width:0%" data-cat="cont"></span></span>
+          <span class="cat-count" data-cat-count="cont">0/6</span>
+        </span>
+        <span class="chevron" aria-hidden="true">▶</span>
+      </button>
+      <ul class="items" id="items-cont" role="group" aria-label="Content and readability items">
+        <li class="item" role="listitem" data-key="cont-0">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Adopt a plain language content policy: Grade 5 reading level<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">Test all copy with the Hemingway Editor. No sentence over 20 words. No jargon without immediate explanation. Adult English literacy in Liberia is 48% — complex language is an exclusion mechanism.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="cont-1">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Show a visible "Last updated" date on every content page</p>
+            <p class="item-note">Add a dynamic date field in Bricks using {post:modified}. Absent or stale dates are the fastest way to collapse citizen trust in a government site. Transparency is a design requirement.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="cont-2">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Present service steps as numbered visual sequences, not paragraphs</p>
+            <p class="item-note">Use Bricks List or custom step containers with numbers and icons. Citizens follow sequential steps; they do not read dense paragraphs looking for action items.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="cont-3">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Place the primary action (phone number, service link) above the fold</p>
+            <p class="item-note">Citizens on limited data cannot afford to scroll. The phone number or primary CTA must be visible without scrolling on a 320 px screen. A page that buries the contact number has failed the user.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="cont-4">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Write all link text descriptively — no "Click here" or "Read more"</p>
+            <p class="item-note">Required for WCAG 2.4.6. Screen reader users navigate by scanning links in isolation. "Download birth certificate form (PDF, 120 KB)" communicates; "Click here" communicates nothing.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="cont-5">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Add a visible site-wide search function in the global header</p>
+            <p class="item-note">Low-literacy users and first-time visitors depend on search to navigate. Place it in the global Bricks header template so it is consistently accessible from every page.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 06 Trust & Credibility -->
+    <div class="category" id="trust" role="listitem">
+      <button class="category-header" aria-expanded="false" aria-controls="items-trust">
+        <span class="cat-number">06</span>
+        <span class="cat-title">Trust &amp; Credibility Signals</span>
+        <span class="cat-meta">
+          <span class="cat-progress-track"><span class="cat-progress-fill" style="width:0%" data-cat="trust"></span></span>
+          <span class="cat-count" data-cat-count="trust">0/6</span>
+        </span>
+        <span class="chevron" aria-hidden="true">▶</span>
+      </button>
+      <ul class="items" id="items-trust" role="group" aria-label="Trust and credibility items">
+        <li class="item" role="listitem" data-key="trust-0">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Show a persistent government identity banner on every page<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">Include the Liberian flag, "An official website of [Ministry Name]", and the .gov.lr domain in a Bricks global header template. Liberia ranks 177/193 on the UN E-Government Index — trust must be actively earned.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="trust-1">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Enforce HTTPS sitewide and verify the SSL certificate is active</p>
+            <p class="item-note">Ensure SSL is active and redirect all HTTP to HTTPS. Set both WordPress URL fields in General Settings to https://. A browser security warning on a government site destroys credibility instantly.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="trust-2">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Add a collapsible "How to know this is official" disclosure</p>
+            <p class="item-note">A small expandable banner explaining the .gov.lr domain as the trusted source. Many first-time users have never seen an official government site and cannot distinguish it from an unofficial one.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="trust-3">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Display ministry contact information in the global footer<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">Physical address, phone number, and official email — visible in the Bricks global footer on every page. Never hide or omit contact information on a government service site.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="trust-4">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Remove all third-party trackers and social sharing scripts</p>
+            <p class="item-note">Facebook Pixel, Google Analytics GA4, and social sharing plugins each add 50–300 KB and a third-party DNS lookup. Remove all that are not actively used and audited.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="trust-5">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Display minister or director name and role on the About page</p>
+            <p class="item-note">Named accountability builds credibility in a low-trust environment. Avoid anonymous institutional language — "The Ministry states…" without a named, accountable official signals opacity, not authority.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 07 Bricks-Specific Settings -->
+    <div class="category" id="bricks" role="listitem">
+      <button class="category-header" aria-expanded="false" aria-controls="items-bricks">
+        <span class="cat-number">07</span>
+        <span class="cat-title">Bricks Builder — Specific Settings</span>
+        <span class="cat-meta">
+          <span class="cat-progress-track"><span class="cat-progress-fill" style="width:0%" data-cat="bricks"></span></span>
+          <span class="cat-count" data-cat-count="bricks">0/8</span>
+        </span>
+        <span class="chevron" aria-hidden="true">▶</span>
+      </button>
+      <ul class="items" id="items-bricks" role="group" aria-label="Bricks Builder specific items">
+        <li class="item" role="listitem" data-key="bricks-0">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Disable Font Awesome if not used<span class="badge badge-critical">Critical</span></p>
+            <p class="item-note">Font Awesome adds approximately 500 KB. In Bricks Settings → Builder → Icons, disable it. Use inline SVGs from a free set (Heroicons, Phosphor) instead. This single change can halve a page's total weight.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="bricks-1">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Use Bricks Query Loop for all dynamic content</p>
+            <p class="item-note">Query Loops pull from Custom Post Types without additional plugins. Use for news, jobs, publications, and service listings. Avoids heavy third-party plugin overhead for repeating content patterns.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="bricks-2">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Create global templates for Header, Footer, and Page layouts</p>
+            <p class="item-note">Government design consistency requires that navigation, branding, and contact information are identical across all ministry pages. Global templates make site-wide updates instant and error-proof.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="bricks-3">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Set content container max-width to 720 px</p>
+            <p class="item-note">Narrow line lengths significantly improve readability on both mobile and desktop. Long line lengths (full-width on a 1440 px screen) require greater eye tracking effort and reduce comprehension.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="bricks-4">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Verify Bricks builder scripts are excluded from the production frontend</p>
+            <p class="item-note">Bricks loads builder-interface scripts on the frontend in development mode. Confirm these are not loading on the live site. Check Network tab in DevTools for bricks-builder JS files.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="bricks-5">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Assign all design values to Bricks Global Variables</p>
+            <p class="item-note">In Bricks → Global Settings → Variables, define all brand colours, spacing values, and typography scales. Changing a brand colour should update the entire site from one place — not require hunting through 80 templates.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="bricks-6">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Disable Bricks' built-in lightbox if not using a gallery</p>
+            <p class="item-note">If the site has no image gallery or lightbox feature, disable this in Bricks Settings. The lightbox JS loads on every page by default whether or not any page actually uses it.</p>
+          </div>
+        </li>
+        <li class="item" role="listitem" data-key="bricks-7">
+          <span class="item-check" aria-hidden="true"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="item-body">
+            <p class="item-label">Run a Lighthouse audit and fix all issues before launch</p>
+            <p class="item-note">Target scores: Performance 90+, Accessibility 100, Best Practices 100, SEO 90+. In Chrome DevTools → Lighthouse, run in mobile mode with simulated throttling. This is the final gate before any page goes live.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+  <!-- end checklist -->
+
+  <!-- Design implication reminder -->
+  <div class="implication" style="margin-top:40px;">
+    <strong>Design implication:</strong> A page that works on a $50 Android phone on 3G in Bong County
+    works for everyone. A page built for a laptop in Monrovia excludes the majority.
+    Design for the constrained user first — every time.
+  </div>
+
+  <a href="#main" class="back-top">↑ Back to top</a>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <span class="footer-brand">GovPixels</span>
+      <span class="footer-tagline">People Country Service — Unified Web Experience Project</span>
+    </div>
+    <div class="footer-right">
+      <span>Checklist version 2025</span><br>
+      <span>55 items · 7 categories</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Script -->
+<script>
+(function () {
+  'use strict';
+
+  // ── Data ──────────────────────────────────────────────────
+  const CATS = {
+    perf:   11,
+    img:    7,
+    mob:    8,
+    a11y:   9,
+    cont:   6,
+    trust:  6,
+    bricks: 8
+  };
+  const TOTAL = Object.values(CATS).reduce((a, b) => a + b, 0);
+  const STORAGE_KEY = 'govpixels_checklist_v1';
+
+  // ── State ─────────────────────────────────────────────────
+  let state = {};
+
+  function loadState() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      state = raw ? JSON.parse(raw) : {};
+    } catch (e) {
+      state = {};
+    }
+  }
+
+  function saveState() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+  }
+
+  // ── Helpers ───────────────────────────────────────────────
+  function totalChecked() {
+    return Object.values(state).filter(Boolean).length;
+  }
+
+  function catChecked(cat) {
+    let count = 0;
+    for (let i = 0; i < CATS[cat]; i++) {
+      if (state[cat + '-' + i]) count++;
+    }
+    return count;
+  }
+
+  // ── Update UI ─────────────────────────────────────────────
+  function updateProgress() {
+    const done = totalChecked();
+    const pct = TOTAL ? Math.round(done / TOTAL * 100) : 0;
+
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = done + ' of ' + TOTAL + ' completed';
+    document.getElementById('progress-pct').textContent = pct + '% complete';
+
+    const track = document.querySelector('[role="progressbar"]');
+    if (track) track.setAttribute('aria-valuenow', pct);
+  }
+
+  function updateCatProgress(cat) {
+    const done = catChecked(cat);
+    const total = CATS[cat];
+    const pct = total ? Math.round(done / total * 100) : 0;
+
+    const fill = document.querySelector('[data-cat="' + cat + '"]');
+    if (fill) fill.style.width = pct + '%';
+
+    const count = document.querySelector('[data-cat-count="' + cat + '"]');
+    if (count) count.textContent = done + '/' + total;
+  }
+
+  function applyItemState(key) {
+    const item = document.querySelector('[data-key="' + key + '"]');
+    if (!item) return;
+    const checked = !!state[key];
+    item.classList.toggle('is-done', checked);
+    item.setAttribute('aria-checked', checked ? 'true' : 'false');
+  }
+
+  function initAllItems() {
+    document.querySelectorAll('.item').forEach(item => {
+      const key = item.dataset.key;
+      if (key) applyItemState(key);
+    });
+  }
+
+  function initAllCats() {
+    Object.keys(CATS).forEach(cat => updateCatProgress(cat));
+  }
+
+  // ── Item click ────────────────────────────────────────────
+  function handleItemClick(e) {
+    const item = e.currentTarget;
+    const key = item.dataset.key;
+    if (!key) return;
+    state[key] = !state[key];
+    applyItemState(key);
+    const cat = key.split('-')[0];
+    updateCatProgress(cat);
+    updateProgress();
+    saveState();
+  }
+
+  // ── Category toggle ───────────────────────────────────────
+  function handleHeaderClick(e) {
+    const btn = e.currentTarget;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    const targetId = btn.getAttribute('aria-controls');
+    const items = document.getElementById(targetId);
+    if (!items) return;
+    btn.setAttribute('aria-expanded', !expanded);
+    items.classList.toggle('open', !expanded);
+  }
+
+  // ── Reset ─────────────────────────────────────────────────
+  function handleReset() {
+    if (!confirm('Reset all checklist items? This cannot be undone.')) return;
+    state = {};
+    saveState();
+    initAllItems();
+    initAllCats();
+    updateProgress();
+  }
+
+  // ── Keyboard support ──────────────────────────────────────
+  function handleItemKeydown(e) {
+    if (e.key === ' ' || e.key === 'Enter') {
+      e.preventDefault();
+      handleItemClick(e);
+    }
+  }
+
+  // ── Init ──────────────────────────────────────────────────
+  function init() {
+    loadState();
+
+    document.querySelectorAll('.item').forEach(item => {
+      item.setAttribute('role', 'checkbox');
+      item.setAttribute('tabindex', '0');
+      item.addEventListener('click', handleItemClick);
+      item.addEventListener('keydown', handleItemKeydown);
+    });
+
+    document.querySelectorAll('.category-header').forEach(btn => {
+      btn.addEventListener('click', handleHeaderClick);
+    });
+
+    document.getElementById('reset-btn').addEventListener('click', handleReset);
+
+    document.getElementById('total-count').textContent = TOTAL;
+
+    initAllItems();
+    initAllCats();
+    updateProgress();
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+})();
+</script>
+
+</body>
+</html>
